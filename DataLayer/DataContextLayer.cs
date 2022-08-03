@@ -6,7 +6,6 @@ namespace DataLayer
 {
     public class DataContextLayer
     {
-
         public static List<Employee> GetEmployees()
         {
             List<Employee> employees = new()

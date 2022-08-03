@@ -1,21 +1,13 @@
 using BusinessLayer;
-using DataLayer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace LinqAndEFQueryProject
+namespace LinqQueryProject
 {
     public class Startup
     {
@@ -32,11 +24,10 @@ namespace LinqAndEFQueryProject
 
             services.AddControllers();
             services.AddMvcCore(options => options.OutputFormatters.Add(new XmlSerializerOutputFormatter()));
-            services.AddScoped<DataContextLayer>();
             services.AddScoped<HomeService>();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "LinqAndEFQueryProject", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "LinqQueryProject", Version = "v1" });
             });
         }
 
@@ -47,7 +38,7 @@ namespace LinqAndEFQueryProject
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LinqAndEFQueryProject v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LinqQueryProject v1"));
             }
 
             app.UseHttpsRedirection();

@@ -220,7 +220,7 @@ namespace BusinessLayer
         /// <returns></returns>
         public Employee GetEmployeeById(int employeeId)
         {
-            return DataContextLayer.GetEmployees().FirstOrDefault(x => x.Id == employeeId);
+            return DataContextLayer.GetEmployees().SingleOrDefault(x => x.Id == employeeId);
         }
 
 

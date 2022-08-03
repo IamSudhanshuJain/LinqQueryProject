@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LinqAndEFQueryProject.Controllers
+namespace LinqQueryProject.Controllers
 {
     [ApiController]
     [Route("v1/[controller]")]
@@ -38,14 +38,14 @@ namespace LinqAndEFQueryProject.Controllers
         }
 
         [HttpGet("GetActiveEmployees")]
-        [ProducesResponseType(typeof(List<Employee>),200)]
-        [ProducesResponseType(typeof(NotFoundResult),404)]
+        [ProducesResponseType(typeof(List<Employee>), 200)]
+        [ProducesResponseType(typeof(NotFoundResult), 404)]
         public IActionResult GetActiveEmployees()
         {
             var response = _homeService.GetAllActiveEmployees();
-            if(!response.Any())
+            if (!response.Any())
                 return NotFound();
-            
+
             return Ok(response);
         }
         [HttpGet("GetAllInActiveEmployees")]
@@ -54,7 +54,7 @@ namespace LinqAndEFQueryProject.Controllers
         public IActionResult GetInActiveEmployees()
         {
             var response = _homeService.GetAllInActiveEmployees();
-            if(!response.Any())
+            if (!response.Any())
                 return NotFound();
             return Ok(response);
 
@@ -76,11 +76,11 @@ namespace LinqAndEFQueryProject.Controllers
         [ProducesResponseType(typeof(List<Employee>), 200)]
         public IActionResult GetEmployeesUsingQuery_BasedOnN(int numberOfRecords)
         {
-            return Ok( _homeService.GetEmployeesBasedOnN_UsingQuery(numberOfRecords));
+            return Ok(_homeService.GetEmployeesBasedOnN_UsingQuery(numberOfRecords));
         }
 
         [HttpGet("GetEmployeesSalary_InnerJoin_UsingQueryLinq")]
-        [ProducesResponseType(typeof(List<EmployeeSalaryModel>),200)]
+        [ProducesResponseType(typeof(List<EmployeeSalaryModel>), 200)]
         public IActionResult GetEmployeesInnerJoinToSalary_UsingQuery_BasedOnN(int numberOfRecords)
         {
             return Ok(_homeService.GetEmployeesInnerJoinToSalary_UsingQuery(numberOfRecords));
@@ -109,7 +109,7 @@ namespace LinqAndEFQueryProject.Controllers
         }
 
         [HttpGet("LeftJoin_EmployeeSalary_UsingQueryLinq")]
-        [ProducesResponseType(typeof(List<EmployeeSalaryModel>),200)]
+        [ProducesResponseType(typeof(List<EmployeeSalaryModel>), 200)]
         public IActionResult GetLeftJoinEmployeeSalary_UsingQueryLinq()
         {
             return Ok(_homeService.LeftJoin_UsingQuery());
@@ -128,6 +128,6 @@ namespace LinqAndEFQueryProject.Controllers
         {
             return Ok(_homeService.GetPhoneNumbers_UsingSelectMany(employeeId));
         }
-        
+
     }
 }

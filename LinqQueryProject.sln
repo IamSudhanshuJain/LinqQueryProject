@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqAndEFQueryProject", "LinqAndEFQueryProject\LinqAndEFQueryProject.csproj", "{29AA64B5-50C2-4718-8303-4E59A5E388F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqQueryProject", "LinqAndEFQueryProject\LinqQueryProject.csproj", "{29AA64B5-50C2-4718-8303-4E59A5E388F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{AFE5DE27-2BC8-446C-91E4-024BC36381F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{AFE5DE27-2BC8-446C-91E4-024BC36381F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{6CD3A9A0-ABBE-416A-BFAD-977F3837194E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\DataLayer.csproj", "{6CD3A9A0-ABBE-416A-BFAD-977F3837194E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

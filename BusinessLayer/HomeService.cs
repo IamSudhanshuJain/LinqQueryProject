@@ -1,7 +1,6 @@
 ﻿using BusinessLayer.Models;
 using DataLayer;
 using DataLayer.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -161,12 +160,12 @@ namespace BusinessLayer
                          into employeeSalaryGroup
                          from empSalaryGroup in employeeSalaryGroup.DefaultIfEmpty()
                          select new EmployeeSalaryModel()
-                          {
-                                 EmployeeId = employee.Id,
-                              EmployeeName = employee.Name,
-                              EmployeeStatus = employee.Status.ToString(),
-                              Salary = empSalaryGroup?.Salary
-                          };
+                         {
+                             EmployeeId = employee.Id,
+                             EmployeeName = employee.Name,
+                             EmployeeStatus = employee.Status.ToString(),
+                             Salary = empSalaryGroup?.Salary
+                         };
 
             return result.ToList();
         }
@@ -204,7 +203,7 @@ namespace BusinessLayer
             var employeePhoneNumbers = DataContextLayer.GetEmployeePhoneNumbers();
 
             //For test, debug and see the list
-            var selectEmployeePhoneNumbers = employeePhoneNumbers.Where(x=>x.EmployeeId == employeeId).Select(x=>x.PhoneNumbers);
+            var selectEmployeePhoneNumbers = employeePhoneNumbers.Where(x => x.EmployeeId == employeeId).Select(x => x.PhoneNumbers);
 
             //debug and check, it picks inner list 
             var selectManyEmployeePhoneNumbers = employeePhoneNumbers.Where(x => x.EmployeeId == employeeId).SelectMany(x => x.PhoneNumbers);

@@ -214,7 +214,7 @@ namespace BusinessLayer
 
         /// <summary>
         /// Get single Employee using Single Linq based on EmployeeId.
-        ///Prefer to using with when searching with primary key.
+        ///Prefer to using with when searching with primary key
         /// </summary>
         /// <param name="employeeId"></param>
         /// <returns></returns>

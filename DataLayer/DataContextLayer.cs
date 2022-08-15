@@ -10,15 +10,15 @@ namespace DataLayer
         {
             List<Employee> employees = new()
             {
-                new Employee() { Id = 1, Name = "Rahul Kumar", JoiningDate = DateTime.Now.AddDays(-365), Status = Status.Inactive },
-                new Employee() { Id = 2, Name = "Abhinav Sharma", JoiningDate = DateTime.Now.AddDays(-365), Status = Status.Inactive },
-                new Employee() { Id = 3, Name = "Preeti Kumari", JoiningDate = DateTime.Now.AddDays(-200), Status = Status.Inactive },
-                new Employee() { Id = 4, Name = "Divya Singh", JoiningDate = DateTime.Now.AddDays(-102), Status = Status.Inactive },
-                new Employee() { Id = 5, Name = "Dheeraj Tejwani", JoiningDate = DateTime.Now.AddDays(-122), Status = Status.Inactive },
-                new Employee() { Id = 6, Name = "Joseph Mathews", JoiningDate = DateTime.Now.AddDays(-110), Status = Status.Inactive },
-                new Employee() { Id = 7, Name = "Ranajit Singh", JoiningDate = DateTime.Now.AddDays(-220), Status = Status.Inactive },
-                new Employee() { Id = 8, Name = "Ranveer Singh", JoiningDate = DateTime.Now.AddDays(-130), Status = Status.Inactive },
-                new Employee() { Id = 9, Name = "Asha Bansal", JoiningDate = DateTime.Now.AddDays(-200), Status = Status.Inactive },
+                new Employee() { Id = 1, Name = "Rahul Kumar", JoiningDate = DateTime.Now.AddDays(-365), Status = Status.Active },
+                new Employee() { Id = 1, Name = "Abhinav Sharma", JoiningDate = DateTime.Now.AddDays(-365), Status = Status.Active },
+                new Employee() { Id = 1, Name = "Preeti Kumari", JoiningDate = DateTime.Now.AddDays(-200), Status = Status.Active },
+                new Employee() { Id = 4, Name = "Divya Singh", JoiningDate = DateTime.Now.AddDays(-102), Status = Status.Active },
+                new Employee() { Id = 5, Name = "Dheeraj Tejwani", JoiningDate = DateTime.Now.AddDays(-122), Status = Status.Active },
+                new Employee() { Id = 6, Name = "Joseph Mathews", JoiningDate = DateTime.Now.AddDays(-110), Status = Status.Active },
+                new Employee() { Id = 7, Name = "Ranajit Singh", JoiningDate = DateTime.Now.AddDays(-220), Status = Status.Active },
+                new Employee() { Id = 8, Name = "Ranveer Singh", JoiningDate = DateTime.Now.AddDays(-130), Status = Status.Active },
+                new Employee() { Id = 9, Name = "Asha Bansal", JoiningDate = DateTime.Now.AddDays(-200), Status = Status.Active },
                 new Employee() { Id = 10, Name = "Abdul Ahmed", JoiningDate = DateTime.Now.AddDays(10), Status = Status.Inactive },
                 new Employee() { Id = 11, Name = "Madakar Rao", JoiningDate = DateTime.Now.AddDays(20), Status = Status.Inactive }
             };

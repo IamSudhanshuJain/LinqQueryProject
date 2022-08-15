@@ -1,16 +1,22 @@
-﻿using BusinessLayer.Models;
+﻿using BusinessLayer.Exceptions;
+using BusinessLayer.Helpers;
+using BusinessLayer.Models;
 using DataLayer;
 using DataLayer.Models;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace BusinessLayer
 {
     public class HomeService
     {
-
-        public HomeService()
+        private readonly ILogger _logger;   
+        public HomeService(ILogger<HomeService> logger)
         {
+            _logger = logger;
         }
         /// <summary>
         /// Get All Employees from the data repository
@@ -219,9 +225,41 @@ namespace BusinessLayer
         /// <returns></returns>
         public Employee GetEmployeeById(int employeeId)
         {
-            return DataContextLayer.GetEmployees().SingleOrDefault(x => x.Id == employeeId);
+            Employee response = new Employee();
+            try
+            {
+                response = DataContextLayer.GetEmployees().SingleElseException(x => x.Id == employeeId, matchItems =>
+                {
+                    string exceptionMessage = string.Empty;
+                    if (!matchItems.Any())
+                        exceptionMessage = $"There are {matchItems.Count()} employee records found for employeeId:{employeeId}";
+
+                    if (matchItems.Count() > 0)
+                    {
+                        exceptionMessage = $"There are {matchItems.Count()} employee records found for employeeId: {employeeId} " +
+                                           $"which are as follows :-";
+
+                        StringBuilder items = new StringBuilder();
+                        foreach (var item in matchItems)
+                        {
+                            items.Append("EmployeeId : " + item.Id + "\n");
+                            items.Append("Name :" + item.Name + "\n");
+                        }
+                        exceptionMessage += Environment.NewLine + items;
+                        return new NotFoundException($"{exceptionMessage}");
+                    }
+
+                    return new NotFoundException($"{exceptionMessage}");
+
+                });
+
+            }
+            catch (NotFoundException ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
+            return response;
         }
-
-
     }
 }
